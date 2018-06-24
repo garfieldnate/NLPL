@@ -1,2 +1,3 @@
 rootProject.name = 'NLPL'
 include 'API'
+include 'server'
