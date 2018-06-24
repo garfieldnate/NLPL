@@ -1,4 +1,5 @@
 rootProject.name = 'NLPL'
 include 'API'
 include 'server'
+include 'JVnTextPro'
 include 'vietnamese'

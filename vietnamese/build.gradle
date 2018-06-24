@@ -10,6 +10,7 @@ repositories {
 }
 
 dependencies {
-    compile project("JVnTextPro")
+    compile project(":API")
+    compile project(":JVnTextPro")
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
