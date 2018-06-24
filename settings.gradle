@@ -1,3 +1,4 @@
 rootProject.name = 'NLPL'
 include 'API'
 include 'server'
+include 'vietnamese'
