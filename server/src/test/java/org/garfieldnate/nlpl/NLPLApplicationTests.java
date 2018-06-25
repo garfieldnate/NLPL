@@ -1,4 +1,4 @@
-package garfieldnate.NLPL.demo;
+package org.garfieldnate.nlpl;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

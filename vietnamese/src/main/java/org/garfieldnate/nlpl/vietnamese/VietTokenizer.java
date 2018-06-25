@@ -1,8 +1,20 @@
+package org.garfieldnate.nlpl.vietnamese;
+
+import org.garfieldnate.nlpl.Tokenizer;
+import org.garfieldnate.nlpl.Tokenizer.Result.Token;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
-public class VietTokenizer {
+import edu.vnu.jvntext.jvntextpro.JVnTextPro;
+import edu.vnu.jvntext.utils.InitializationException;
+
+@Component
+public class VietTokenizer implements Tokenizer{
     @SuppressWarnings("serial")
     private static final Map<String, String> POS = new HashMap<String, String>(){{
         put("N", "danh từ");
@@ -23,29 +35,21 @@ public class VietTokenizer {
         put("Y", "từ viết tắt");
         put("X", "un-các từ không phân loại được");
         put("Mrk", "các dấu câu");
-
     }};
+
     private final JVnTextPro textProcessor;
 
-    public VietTokenizer(Properties props) {
-        props.putIfAbsent("sentSegModel",
-                          "C:/Users/Nate/Desktop/workspaces/java_workspace/JVnTextPro-v.2.0/models/jvnsensegmenter");
-        props.putIfAbsent("sentSegModel",
-                          "C:/Users/Nate/Desktop/workspaces/java_workspace/JVnTextPro-v.2.0/models/jvnsensegmenter");
-        props.putIfAbsent("wordSegModel",
-                          "C:/Users/Nate/Desktop/workspaces/java_workspace/JVnTextPro-v.2.0/models/jvnsegmenter");
-        props.putIfAbsent("posTaggerModel",
-                          "C:/Users/Nate/Desktop/workspaces/java_workspace/JVnTextPro-v.2.0/models/jvnpostag/maxent");
+    public VietTokenizer() throws IOException, InitializationException {
         textProcessor = new JVnTextPro();
-        textProcessor.initSenSegmenter(props.getProperty("sentSegModel"));
+        textProcessor.initSenSegmenter();
         textProcessor.initSenTokenization();
-        textProcessor.initSegmenter(props.getProperty("wordSegModel"));
-        textProcessor.initPosTagger(props.getProperty("posTaggerModel"));
+        textProcessor.initSegmenter();
+        textProcessor.initPosTagger();
     }
 
     public Result tokenize(String inputText) {
         // important for getting token indices right
-        inputText.replaceAll("([\\v\\s\\t]+)", "$1");
+        inputText = inputText.replaceAll("([\\v\\s\\t]+)", "$1");
         String taggedText = textProcessor.process(inputText);
         List<Token> tokens = new LinkedList<>();
         System.out.println(taggedText);
@@ -69,15 +73,15 @@ public class VietTokenizer {
         return new Result(inputText, tokens);
     }
 
-    public static void main(String[] args) {
-        VietTokenizer vt = new VietTokenizer(new Properties());
+    public static void main(String[] args) throws IOException, InitializationException {
+        VietTokenizer vt = new VietTokenizer();
         Result result = vt.tokenize("Xử lý ngôn ngữ là một kĩ thuật quan trọng nhằm giúp máy "
-                                    + "tính hiểu được ngôn ngữ của con người, qua đó hướng dẫn máy "
-                                    + "tính thực hiện và giúp đỡ con người trong những công việc có "
-                                    + "liên quan đến ngôn ngữ như : dịch thuật, phân tích dữ liệu "
-                                    + "văn bản, nhận dạng tiếng nói, tìm kiếm thông tin, ... XLNN "
-                                    + "cũng đóng một vai trò quan trọng trong việc đẩy mạnh sự phát "
-                                    + "triển của CNTT Việt Nam để sánh ngang với các cường quốc khác.");
+                                              + "tính hiểu được ngôn ngữ của con người, qua đó hướng dẫn máy "
+                                              + "tính thực hiện và giúp đỡ con người trong những công việc có "
+                                              + "liên quan đến ngôn ngữ như : dịch thuật, phân tích dữ liệu "
+                                              + "văn bản, nhận dạng tiếng nói, tìm kiếm thông tin, ... XLNN "
+                                              + "cũng đóng một vai trò quan trọng trong việc đẩy mạnh sự phát "
+                                              + "triển của CNTT Việt Nam để sánh ngang với các cường quốc khác.");
         System.out.println(result);
     }
 

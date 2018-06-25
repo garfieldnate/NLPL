@@ -27,9 +27,9 @@ repositories {
 	mavenCentral()
 }
 
-
 dependencies {
     compile project(':API')
+    compile project(':vietnamese')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
