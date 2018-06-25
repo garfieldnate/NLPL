@@ -19,6 +19,7 @@ import lombok.Value;
 @RestController
 @SpringBootApplication
 @ComponentScan("org.garfieldnate.nlpl")
+@RequestMapping("/api/v1")
 public class NLPLApplication {
     @Value
     private static class Response {
