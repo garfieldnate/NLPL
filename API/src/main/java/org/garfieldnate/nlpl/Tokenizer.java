@@ -21,4 +21,6 @@ public interface Tokenizer {
 	}
 
 	Result tokenize(String inputText);
+
+    String getLanguage();
 }

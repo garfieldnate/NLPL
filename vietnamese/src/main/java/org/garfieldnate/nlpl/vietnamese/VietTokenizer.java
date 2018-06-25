@@ -15,6 +15,13 @@ import edu.vnu.jvntext.utils.InitializationException;
 
 @Component
 public class VietTokenizer implements Tokenizer{
+    private static final String NAME = "VN";
+
+    @Override
+    public String getLanguage() {
+        return NAME;
+    }
+
     @SuppressWarnings("serial")
     private static final Map<String, String> POS = new HashMap<String, String>(){{
         put("N", "danh từ");
