@@ -3,3 +3,5 @@ include 'API'
 include 'server'
 include 'JVnTextPro'
 include 'vietnamese'
+include 'stanfordNLPtokenizers'
+
