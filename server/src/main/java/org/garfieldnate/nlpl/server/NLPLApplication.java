@@ -21,6 +21,7 @@ import lombok.Value;
 @ComponentScan("org.garfieldnate.nlpl")
 @RequestMapping("/api/v1")
 public class NLPLApplication {
+    //TODO: move into API
     @Value
     private static class Response {
         Tokenizer.Result result;

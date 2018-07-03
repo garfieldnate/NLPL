@@ -5,13 +5,14 @@ import org.garfieldnate.nlpl.Tokenizer.Result.Token;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import edu.vnu.jvntext.jvntextpro.JVnTextPro;
-import edu.vnu.jvntext.utils.InitializationException;
+import vn.edu.vnu.jvntext.jvntextpro.JVnTextPro;
+import vn.edu.vnu.jvntext.utils.InitializationException;
 
 @Component
 public class VietTokenizer implements Tokenizer{
@@ -80,7 +81,7 @@ public class VietTokenizer implements Tokenizer{
         return new Result(inputText, tokens);
     }
 
-    public static void main(String[] args) throws IOException, InitializationException {
+    public static void main(String[] args) throws IOException, InitializationException, URISyntaxException {
         VietTokenizer vt = new VietTokenizer();
         Result result = vt.tokenize("Xử lý ngôn ngữ là một kĩ thuật quan trọng nhằm giúp máy "
                                               + "tính hiểu được ngôn ngữ của con người, qua đó hướng dẫn máy "

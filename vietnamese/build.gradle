@@ -11,6 +11,8 @@ repositories {
 
 dependencies {
     compile project(":API")
-    compile project(":JVnTextPro")
+    compile 'vn.edu.vnu.jvntext.jvntextpro:JVnTextPro:3.0.3'
+    compile 'vn.edu.vnu.jvntext.jvntextpro:JVnTextPro:3.0.3:models'
     compile group: 'org.springframework', name: 'spring-context', version: '5.0.7.RELEASE'
+    compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
 }
