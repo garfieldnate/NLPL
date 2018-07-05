@@ -14,5 +14,6 @@ dependencies {
     compile 'vn.edu.vnu.jvntext.jvntextpro:JVnTextPro:3.0.3'
     compile 'vn.edu.vnu.jvntext.jvntextpro:JVnTextPro:3.0.3:models'
     compile group: 'org.springframework', name: 'spring-context', version: '5.0.7.RELEASE'
-    compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
+    // uncomment for debugging the vietnamese project by itself; will cause server project not to compile, though
+//    compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
 }

@@ -1,0 +1,3 @@
+server:
+    port: 1978
+springfox.documentation.swagger.v2.path: /docs/swagger/v2
