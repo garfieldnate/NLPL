@@ -30,6 +30,16 @@ repositories {
 dependencies {
     compile project(':API')
     compile project(':vietnamese')
+
 	compile('org.springframework.boot:spring-boot-starter-web')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+
+    // allows spring to load application.yml
+    compile group: 'org.yaml', name: 'snakeyaml', version: '1.18'
+
+    // generate Swagger docs at runtime
+    // https://mvnrepository.com/artifact/io.springfox
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+    compile "io.springfox:springfox-bean-validators:2.9.2"
 }

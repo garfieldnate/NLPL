@@ -1,7 +1,7 @@
 package org.garfieldnate.nlpl.vietnamese;
 
-import org.garfieldnate.nlpl.Tokenizer;
-import org.garfieldnate.nlpl.Tokenizer.Result.Token;
+import org.garfieldnate.nlpl.tokenize.Tokenizer;
+import org.garfieldnate.nlpl.tokenize.Tokenizer.Result.Token;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -16,7 +16,7 @@ import vn.edu.vnu.jvntext.utils.InitializationException;
 
 @Component
 public class VietTokenizer implements Tokenizer{
-    private static final String NAME = "VN";
+    private static final String NAME = "vie";
 
     @Override
     public String getLanguage() {
